@@ -6,15 +6,13 @@ using System.Threading.Tasks;
 
 namespace AM.ApplicationCore.Domain
 {
-    public class Etudiant : Person
+    public class Etudiant:Personne
     {
         public int Matricule { get; set; }
         public string Specialite { get; set; }
-
-       
-        public override void getMyType()
+        public override void GetMyType()
         {
-            Console.WriteLine("I'am a student");
+            Console.WriteLine("Am a Student");
         }
     }
 }
