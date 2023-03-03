@@ -41,6 +41,9 @@ using AM.ApplicationCore.Services;
 //etudiant.GetMyType();
 
 
+
+
+
 Plane plane1 = new Plane();
 plane1.PlaneId = 1;
 plane1.Capacity = 300;
@@ -60,6 +63,19 @@ Passanger pass1 = new Passanger
 
 
 };
+
+
+int x = 45;
+
+Console.WriteLine(x.add(4));
+
+Passanger p = new Passanger()
+{
+    LastName = "test",
+    FirstName = "test",
+};
+p.fullNameUppercase();
+Console.WriteLine(p);
 
 Console.WriteLine(pass1.CheckProfil("xxxxxxx", "xxxxxxxxx"));
 pass1.PassangerType();
@@ -102,11 +118,13 @@ delegate (string a, Flight flight)
 {
     return flight.Destination == a;
 });
-service.GetFlights("Paris",
+/**service.GetFlights("Paris",
  (string a, Flight flight) =>
 
      flight.EstimatedDuration == int.Parse(a)
-);
+);*/
+
+
 
 
 

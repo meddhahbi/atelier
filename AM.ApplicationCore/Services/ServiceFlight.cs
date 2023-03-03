@@ -14,6 +14,7 @@ namespace AM.ApplicationCore.Services
         public List<Flight> Flights { get; set; } = new List<Flight>();
 
 
+
         public List<DateTime> GetFlightDates(string destination)
         {
             List<DateTime> dates = new List<DateTime>();
@@ -150,7 +151,7 @@ namespace AM.ApplicationCore.Services
 
 
             return query.passangers
-                .OfType<Traveller>().ToList().OrderBy(p=>p.BirthDate).Take(3).ToList(+);
+                .OfType<Traveller>().ToList().OrderBy(p=>p.BirthDate).Take(3).ToList();
         }
 
 
@@ -182,10 +183,52 @@ namespace AM.ApplicationCore.Services
         public ServiceFlight()
         {
 
+            flightDetailsDel =  plane=>
+        {
+                /* var req = from f in Flights
+                     where (f.plane == plane)
+                     select new { f.FlightDate, f.Destination 
+                     };
+
+                 foreach (var item in req) {
+                     Console.WriteLine(item.Destination + "" + item.FlightDate);
+                 }*/
+
+
+
+                var req = Flights
+                    .Where(f => f.plane == plane)
+                    .Select(f => new { f.FlightDate, f.Destination });
+
+                foreach (var item in req)
+                {
+                    Console.WriteLine(item.Destination + "" + item.FlightDate);
+                }
+
+            };
+            durationAverageDel =  destination=>
+        {
+                /* var query = from f in Flights
+                             where f.Destination == destination
+                             select f.EstimatedDuration;
+
+                 return query.Average();*/
+
+
+                var query = Flights
+                    .Where(f => f.Destination == destination)
+                    .Average(f => f.EstimatedDuration);
+
+                return query;
+
+
+            };
+
+
         }
 
 
-
+        
 
 
 
