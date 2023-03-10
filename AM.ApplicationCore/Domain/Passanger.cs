@@ -20,11 +20,14 @@ namespace AM.ApplicationCore.Domain
         [Required]
         [EmailAddress]
         public string EmailAddress { get; set; }
-        [Display(Name = "First Name")]
+        /*[Display(Name = "First Name")]
         [StringLength(25, MinimumLength = 3, ErrorMessage = "First name must be between 3 and 25 characters")]
         public string FirstName { get; set; }
-        [Display(Name = "Last Name")]
-        public string LastName { get; set; }
+        [Display(Name = "Last Name")]*/
+
+        public FullName fullName { get; set; }
+
+       /* public string LastName { get; set; }*/
         [Display(Name = "Telephone Number")]
 
         [Required]
@@ -33,16 +36,16 @@ namespace AM.ApplicationCore.Domain
 
 
         public List<Flight> flights { get; set; }
-        public override string ToString()
+       /* public override string ToString()
         {
             return $"BirthDate: {BirthDate}, PassportNumber: {PassportNumber}, EmailAddress: {EmailAddress}, FirstName: {FirstName}, LastName: {LastName}, TelNumber: {TelNumber}";
-        }
+        }*/
         public virtual void PassangerType()
         {
             Console.WriteLine("I am a Passenger");
 
         }
-        public bool CheckProfil(string firstname, string lastname, string emailadress = null)
+       /* public bool CheckProfil(string firstname, string lastname, string emailadress = null)
         {
             if (emailadress == null)
             {
@@ -54,7 +57,7 @@ namespace AM.ApplicationCore.Domain
                 return FirstName == firstname && LastName == lastname && EmailAddress == emailadress;
 
             }
-        }
+        }*/
     }
 
 }

@@ -57,8 +57,8 @@ Plane p3 = new Plane()
 Console.WriteLine(p3.ToString());
 Passanger pass1 = new Passanger
 {
-    FirstName = "xxxxxx",
-    LastName = "xxxxxxxxx",
+   /* FirstName = "xxxxxx",
+    LastName = "xxxxxxxxx",*/
     EmailAddress = "xxxxxxx.xxxxxxx@esprit.tn"
 
 
@@ -71,14 +71,14 @@ Console.WriteLine(x.add(4));
 
 Passanger p = new Passanger()
 {
-    LastName = "test",
-    FirstName = "test",
+   /* LastName = "test",
+    FirstName = "test",*/
 };
-p.fullNameUppercase();
-Console.WriteLine(p);
+/*p.fullNameUppercase();
+*/Console.WriteLine(p);
 
-Console.WriteLine(pass1.CheckProfil("xxxxxxx", "xxxxxxxxx"));
-pass1.PassangerType();
+/*Console.WriteLine(pass1.CheckProfil("xxxxxxx", "xxxxxxxxx"));
+*/pass1.PassangerType();
 Staff stf = new Staff();
 stf.PassangerType();
 

@@ -10,13 +10,13 @@ namespace AM.ApplicationCore.Services
     public static class PassengerExtension
     {
 
-        public static void fullNameUppercase(this Passanger p) { 
+      /*  public static void fullNameUppercase(this Passanger p) { 
             
               
          p.FirstName = p.FirstName[0].ToString().ToUpper() + p.FirstName.AsSpan(1).ToString();
         p.LastName = char.ToUpper(p.LastName[0])+p.LastName.Substring(1);
         
-        }
+        }*/
 
 
 

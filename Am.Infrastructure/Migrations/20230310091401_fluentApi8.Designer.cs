@@ -4,6 +4,7 @@ using Am.Infrastructure;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Am.Infrastructure.Migrations
 {
     [DbContext(typeof(AmContext))]
-    partial class AmContextModelSnapshot : ModelSnapshot
+    [Migration("20230310091401_fluentApi8")]
+    partial class fluentApi8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -238,7 +241,7 @@ namespace Am.Infrastructure.Migrations
 
             modelBuilder.Entity("AM.ApplicationCore.Domain.Passanger", b =>
                 {
-                    b.OwnsOne("AM.ApplicationCore.Domain.FullName", "fullName", b1 =>
+                    b.OwnsOne("AM.ApplicationCore.Domain.FullName", "FullName", b1 =>
                         {
                             b1.Property<int>("PassangerPassportNumber")
                                 .HasColumnType("int");
@@ -246,14 +249,12 @@ namespace Am.Infrastructure.Migrations
                             b1.Property<string>("firstName")
                                 .IsRequired()
                                 .HasMaxLength(50)
-                                .HasColumnType("varchar")
-                                .HasColumnName("FirstName");
+                                .HasColumnType("varchar");
 
                             b1.Property<string>("lastName")
                                 .IsRequired()
                                 .HasMaxLength(50)
-                                .HasColumnType("varchar")
-                                .HasColumnName("LastName");
+                                .HasColumnType("varchar");
 
                             b1.HasKey("PassangerPassportNumber");
 
@@ -263,7 +264,7 @@ namespace Am.Infrastructure.Migrations
                                 .HasForeignKey("PassangerPassportNumber");
                         });
 
-                    b.Navigation("fullName")
+                    b.Navigation("FullName")
                         .IsRequired();
                 });
 
